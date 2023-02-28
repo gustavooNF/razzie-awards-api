@@ -3,7 +3,7 @@ API RESTful que possibilita a consulta dos vencedores e indicados à categoria P
 Foi atendido o nível 2 de maturidade de Richardson através do uso eficiente de verbos HTTP e URI's.
 
 ## Requisitos
-O projeto foi construído utilizando-se da jdk 18.
+O projeto foi construído utilizando-se da jdk 18 e IntelliJ IDEA
 
 ## Configurações
 - porta: 8080
@@ -19,9 +19,7 @@ Para acessar o console H2: localhost:8080/razzieawards-api/h2
 1. Faça o download .zip do projeto ou clone o repositório
 2. O projeto utiliza o Gradle como automatizador de builds
 3. Execute o comando Gradle abaixo:
-```sh
-        $ gradle clean build
-```
+   $ gradle clean build
 4. Para iniciar a aplicação navegue e selecione a classe src/main/java/com/gustavo/texoit/razziesapi/RazzieAwardsApplication.java e pressione Ctrl + Shift + F10
 
 ## Docs
