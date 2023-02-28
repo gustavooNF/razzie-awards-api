@@ -13,7 +13,6 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 public class Movie implements Serializable {
 
     private static final Long serialVersionUID = 1L;
