@@ -11,4 +11,5 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @ApiResponse(description = "Busca todos os filmes vencedores")
     List<Movie> findByWinner(Boolean winner);
+
 }

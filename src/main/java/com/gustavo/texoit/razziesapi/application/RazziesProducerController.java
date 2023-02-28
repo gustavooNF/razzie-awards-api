@@ -22,7 +22,7 @@ public class RazziesProducerController {
     private final ProducerService producerService;
 
     @GetMapping("/razzies")
-    @ApiResponse(description = "Intervalo de Prêmios")
+    @ApiResponse(responseCode = "200", description = "Intervalo de Prêmios")
     public ResponseEntity<RazzieAwardsIntervalResponse> findAwards() {
         RazzieAwardsIntervalResponse response = new RazzieAwardsIntervalResponse();
         MovieAwardInterval gaps = producerService.getIntervalBetweenAwards();
