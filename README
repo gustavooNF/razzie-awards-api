@@ -1,6 +1,4 @@
 # razzieawards-api
-A API foi criada visando atender ao nível de maturidade 2 de Richardson.
-
 API RESTful que possibilita a consulta dos vencedores e indicados à categoria Pior Filme do Golden Raspberry Awards.
 Foi atendido o nível 2 de maturidade de Richardson através do uso eficiente de verbos HTTP e URI's.
 
