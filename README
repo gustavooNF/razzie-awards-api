@@ -1,0 +1,33 @@
+# razzieawards-api
+A API foi criada visando atender ao nível de maturidade 2 de Richardson.
+
+API RESTful que possibilita a consulta dos vencedores e indicados à categoria Pior Filme do Golden Raspberry Awards.
+Foi atendido o nível 2 de maturidade de Richardson através do uso eficiente de verbos HTTP e URI's.
+
+## Requisitos
+O projeto foi construído utilizando-se da jdk 18.
+
+## Configurações
+- porta: 8080
+- contexto da aplicação: /razzieawards-api
+- end-point que retorna a especificação do desafio: /v1/producers/razzies
+
+## Banco de dados H2
+Para acessar o console H2: localhost:8080/razzieawards-api/h2
+- user: sa
+- password: (deixar em branco)
+
+## Execução do projeto
+1. Faça o download .zip do projeto ou clone o repositório
+2. O projeto utiliza o Gradle como automatizador de builds
+3. Execute o comando Gradle abaixo:
+```sh
+        $ gradle clean build
+```
+4. Para iniciar a aplicação navegue e selecione a classe src/main/java/com/gustavo/texoit/razziesapi/RazzieAwardsApplication.java e pressione Ctrl + Shift + F10
+
+## Docs
+Inicie a aplicação e acesse: http://localhost:8080/razzieawards-api/swagger-ui/index.html#/
+
+## Testes
+Os teste são executados no momento do build, porém podem ser executados novamete ao navegar e selecionar a classe src/test/java/com/gustavo/texoit/razziesapi/RazzieAwardsApplicationTests.java e pressionar Ctrl + Shift + F10
