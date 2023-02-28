@@ -49,7 +49,7 @@ public class ProducerService {
                         razzies.stream().min(Comparator.comparing(ProducerRazzies::getTimeGap))
                                 .orElseThrow(NoSuchElementException::new).getTimeGap())).collect(Collectors.toList());
 
-        return new MovieAwardInterval(max, min);
+        return new MovieAwardInterval(min, max);
     }
 
 }
