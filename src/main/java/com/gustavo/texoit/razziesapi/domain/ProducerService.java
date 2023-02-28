@@ -3,7 +3,7 @@ package com.gustavo.texoit.razziesapi.domain;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.gustavo.texoit.razziesapi.domain.worstmovie.Movie;
-import com.gustavo.texoit.razziesapi.domain.worstmovie.MovieAwardGap;
+import com.gustavo.texoit.razziesapi.domain.worstmovie.MovieAwardInterval;
 import com.gustavo.texoit.razziesapi.domain.worstmovie.MovieRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class ProducerService {
 
     private final MovieRepository movieRepository;
 
-    public MovieAwardGap getIntervalBetweenAwards() {
+    public MovieAwardInterval getIntervalBetweenAwards() {
         List<ProducerRazzies> razzies = Lists.newArrayList();
         List<Movie> winners = movieRepository.findByWinner(true);
 
@@ -49,7 +49,7 @@ public class ProducerService {
                         razzies.stream().min(Comparator.comparing(ProducerRazzies::getTimeGap))
                                 .orElseThrow(NoSuchElementException::new).getTimeGap())).collect(Collectors.toList());
 
-        return new MovieAwardGap(max, min);
+        return new MovieAwardInterval(max, min);
     }
 
 }

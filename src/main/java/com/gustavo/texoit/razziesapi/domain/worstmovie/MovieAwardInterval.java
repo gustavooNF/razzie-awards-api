@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class MovieAwardGap implements Serializable {
+public class MovieAwardInterval implements Serializable {
 
     private static final Long serialVersionUID = 1L;
 
