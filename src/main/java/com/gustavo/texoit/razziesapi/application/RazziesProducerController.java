@@ -3,6 +3,7 @@ package com.gustavo.texoit.razziesapi.application;
 import com.gustavo.texoit.razziesapi.domain.ProducerRazzies;
 import com.gustavo.texoit.razziesapi.domain.ProducerService;
 import com.gustavo.texoit.razziesapi.domain.worstmovie.MovieAwardInterval;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,7 @@ public class RazziesProducerController {
     private final ProducerService producerService;
 
     @GetMapping("/razzies")
+    @ApiResponse(description = "Intervalo de Prêmios")
     public ResponseEntity<RazzieAwardsIntervalResponse> findAwards() {
         RazzieAwardsIntervalResponse response = new RazzieAwardsIntervalResponse();
         MovieAwardInterval gaps = producerService.getIntervalBetweenAwards();
