@@ -12,7 +12,7 @@ public class ProducerRazzies implements Serializable {
     private static final Long serialVersionUID = 1L;
 
     private String producer;
-    private Long previousAward;
-    private Long currentAward;
-    private Long timeGap;
+    private Integer previousAward;
+    private Integer currentAward;
+    private Integer timeGap;
 }

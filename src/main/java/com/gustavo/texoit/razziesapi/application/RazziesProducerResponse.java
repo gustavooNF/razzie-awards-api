@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 public class RazziesProducerResponse {
 
     private String producer;
-    private Long previousWin;
-    private Long followingWin;
-    private Long interval;
+    private Integer previousWin;
+    private Integer followingWin;
+    private Integer interval;
 }

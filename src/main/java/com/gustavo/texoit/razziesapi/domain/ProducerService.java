@@ -32,12 +32,12 @@ public class ProducerService {
             if (movies.size() >= 2 ) {
                 log.info("Encontrado produtor com 2 ou mais prêmios");
                     ProducerRazzies razzie = new ProducerRazzies();
-                    long previous = movies.get(0).getYear();
-                    long current = Iterables.getLast(movies).getYear();
+                    int previous = movies.get(0).getYear().intValue();
+                    int following = Iterables.getLast(movies).getYear().intValue();
                     razzie.setProducer(producer);
                     razzie.setPreviousAward(previous);
-                    razzie.setCurrentAward(current);
-                    razzie.setTimeGap(current - previous);
+                    razzie.setCurrentAward(following);
+                    razzie.setTimeGap(following - previous);
                     razzies.add(razzie);
             }
         });
