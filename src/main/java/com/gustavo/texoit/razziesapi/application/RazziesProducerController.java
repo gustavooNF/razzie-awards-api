@@ -26,21 +26,22 @@ public class RazziesProducerController {
     public ResponseEntity<RazzieAwardsIntervalResponse> findAwards() {
         RazzieAwardsIntervalResponse response = new RazzieAwardsIntervalResponse();
         MovieAwardInterval gaps = producerService.getIntervalBetweenAwards();
+        responseWriter(response, gaps.getMin(), gaps.getMax());
 
-        responseWriter(response.getMin(), gaps.getMin());
-        responseWriter(response.getMax(), gaps.getMax());
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    private void responseWriter (List<RazziesProducerResponse> response, List<ProducerRazzies> producerRazzies) {
-        producerRazzies.forEach(p -> {
-            RazziesProducerResponse producerResponse = new RazziesProducerResponse();
-            producerResponse.setProducer(p.getProducer());
-            producerResponse.setFollowingWin(p.getCurrentAward());
-            producerResponse.setPreviousWin(p.getPreviousAward());
-            producerResponse.setInterval(p.getTimeGap());
-            response.add(producerResponse);
-        });
+    private void responseWriter (RazzieAwardsIntervalResponse response, List<ProducerRazzies> producerRazziesMin, List<ProducerRazzies> producerRazziesMax) {
+        producerRazziesMin.forEach(p -> response.getMin().add(responseParse(p)));
+        producerRazziesMax.forEach(p -> response.getMax().add(responseParse(p)));
     }
 
+    private RazziesProducerResponse responseParse(ProducerRazzies producerRazzies) {
+        RazziesProducerResponse producerResponse = new RazziesProducerResponse();
+        producerResponse.setProducer(producerRazzies.getProducer());
+        producerResponse.setFollowingWin(producerRazzies.getCurrentAward());
+        producerResponse.setPreviousWin(producerRazzies.getPreviousAward());
+        producerResponse.setInterval(producerRazzies.getTimeGap());
+        return producerResponse;
+    }
 }
