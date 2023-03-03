@@ -26,11 +26,26 @@ public class RazzieAwardsApplicationTests {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void testRazziesInterval() {
+    public void testRazziesIntervalWithAnyData() {
         ResponseEntity<RazzieAwardsIntervalResponse> responseEntity = restTemplate.getForEntity(HTTP_LOCALHOST + port + V_1_PRODUCERS + "/razzies", RazzieAwardsIntervalResponse.class);
         Assert.assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);
         Assert.assertNotNull(responseEntity.getBody());
         Assert.assertNotNull(responseEntity.getBody().getMin());
         Assert.assertNotNull(responseEntity.getBody().getMax());
+    }
+
+    @Test
+    public void testWithMoreThanOneRazzies() {
+        ResponseEntity<RazzieAwardsIntervalResponse> responseEntity = restTemplate.getForEntity(HTTP_LOCALHOST + port + V_1_PRODUCERS + "/razzies", RazzieAwardsIntervalResponse.class);
+        Assert.assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);
+        Assert.assertNotNull(responseEntity.getBody());
+        Assert.assertEquals(1, responseEntity.getBody().getMin().get(0).getInterval().intValue());
+    }
+    @Test
+    public void testBigIntervalRazzies() {
+        ResponseEntity<RazzieAwardsIntervalResponse> responseEntity = restTemplate.getForEntity(HTTP_LOCALHOST + port + V_1_PRODUCERS + "/razzies", RazzieAwardsIntervalResponse.class);
+        Assert.assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);
+        Assert.assertNotNull(responseEntity.getBody());
+        Assert.assertEquals(13, responseEntity.getBody().getMax().get(0).getInterval().intValue());
     }
 }
