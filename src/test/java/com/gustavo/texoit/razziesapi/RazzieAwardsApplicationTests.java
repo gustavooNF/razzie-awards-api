@@ -42,7 +42,7 @@ public class RazzieAwardsApplicationTests {
         Assert.assertEquals(1, responseEntity.getBody().getMin().get(0).getInterval().intValue());
     }
     @Test
-    public void testBigIntervalRazzies() {
+    public void testBiggerIntervalRazzies() {
         ResponseEntity<RazzieAwardsIntervalResponse> responseEntity = restTemplate.getForEntity(HTTP_LOCALHOST + port + V_1_PRODUCERS + "/razzies", RazzieAwardsIntervalResponse.class);
         Assert.assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);
         Assert.assertNotNull(responseEntity.getBody());
